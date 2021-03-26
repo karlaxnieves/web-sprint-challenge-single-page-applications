@@ -3,9 +3,11 @@ import React from 'react'
 import { useHistory } from 'react-router-dom'
 
 export default function Home() {
+
     const history = useHistory()
 
     const routeToShop = () => {
+
         history.push('/pizza');
     }
 
@@ -13,15 +15,16 @@ export default function Home() {
         <div className='home-wrapper'>
             <img
                 className='Pizza'
-                src=''
-                alt=''
+                img=""
+                alt=""
             />
             <button
                 onClick={routeToShop}
-                className='md-button shop-button'
+                className='md-button order-button'
             >
-                Shop now!
+                Pizza?
       </button>
+
         </div>
     )
 }

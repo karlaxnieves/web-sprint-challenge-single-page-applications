@@ -139,4 +139,27 @@ button {
   }
 }
 
+img{
+  height: 55%;
+  width: 95%;
+}
+
+.food {
+  color: black;
+  height: 2.5rem;
+  width: 3rem;
+  border-radius: 4px;
+  color: rgb(1, 15, 1);
+  background-color: white;
+  border: 2px solid rgb(11, 12, 11);
+  font-size: 0.3em
+  
+}
+
+.food-delivery{
+display: flex;
+}
+
+
+
 
