@@ -1,11 +1,17 @@
-import React from "react";
+import axios from 'axios';
+import React, { useState, useEffect } from 'react'
+import { Route, Link, Switch } from 'react-router-dom'
+import Confirmation from './Confirmation'
+import Form from './Form'
+import Home from './Home'
+
 
 const App = () => {
+  const [list, setList] = useState([])
+
+
   return (
-    <>
-      <h1>Lambda Eats</h1>
-      <p>You can remove this code and create your own header</p>
-    </>
+    
   );
 };
 export default App;
