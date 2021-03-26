@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import Form from './Form'
 import schema from './formSchema'
 import * as yup from "yup";
-import Home from './Home'
+import Home from './Home';
 import css from './App.css'
 import Confirmation from './Confirmation'
 import { Route, Link, Switch } from 'react-router-dom'
@@ -36,6 +36,7 @@ const initialList = [];
 const initialDisabled = true;
 
 export default function App() {
+
   const [list, setList] = useState(initialList)
   const [formValues, setFormValues] = useState(initialFormValues);
   const [formErrors, setFormErrors] = useState(initialFormErrors);
@@ -112,6 +113,7 @@ export default function App() {
   }, [formValues]);
 
 
+
   return (
     <div className="container">
 
@@ -126,6 +128,7 @@ export default function App() {
         <div className='pizza'>
           <h1 className='store-header'>Your favortie food, delivered while coding!</h1>
         </div>
+
 
         <Switch>
           <Route path={'/pizza'}>

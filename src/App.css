@@ -160,6 +160,13 @@ img{
 display: flex;
 }
 
+.nav-links{
+  font-size: 2em;
+  display: flex;
+  margin: 3%;
+  justify-content: flex-end;
+}
+
 
 
 

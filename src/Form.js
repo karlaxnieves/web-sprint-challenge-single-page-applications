@@ -1,11 +1,14 @@
 import React from "react";
 import Confirmation from "./Confirmation";
-import { Link, useRouteMatch } from "react-router-dom";
+import { Route, Link } from "react-router-dom";
+import Home from './Home'
+
+
 
 export default function Form(props) {
     const { values, submit, change, disabled, errors, } = props;
 
-    const { url } = useRouteMatch();
+
 
     const onSubmit = (evt) => {
         evt.preventDefault();
@@ -17,6 +20,8 @@ export default function Form(props) {
         const valueToUse = type === "checkbox" ? checked : value;
         change(name, valueToUse);
     };
+
+
 
 
     return (
@@ -189,7 +194,12 @@ export default function Form(props) {
                     </label>
                 </div>
                 <div className="submit" onSubmit={onSubmit}>
-                    <button disabled={disabled}>Add to Order</button>
+                    <button disabled={disabled}><Link to="/pizza/confirmation">Add to Order</Link></button>
+
+                    <Route path={'/pizza/confirmation'}>
+                        <Confirmation />
+                    </Route>
+
                 </div>
             </div>
         </form>

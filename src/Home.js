@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import Form from './Form'
+import { Route, Link, Switch, useHistory } from 'react-router-dom'
 
-import { useHistory } from 'react-router-dom'
+
 
 export default function Home() {
+
 
     const history = useHistory()
 
