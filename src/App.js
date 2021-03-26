@@ -3,7 +3,10 @@ import React, { useState, useEffect } from 'react'
 import Form from './Form'
 import schema from './formSchema'
 import * as yup from "yup";
+import Home from './Home'
 import css from './App.css'
+import Confirmation from './Confirmation'
+import { Route, Link, Switch } from 'react-router-dom'
 
 
 const initialFormValues = {
@@ -111,9 +114,26 @@ export default function App() {
 
   return (
     <div className="container">
-      <header>
-        <h1>Build Your Own Pizza</h1>
-      </header>
+
+      <div className='App'>
+        <nav>
+          <h1 className='store-header'>Your favortie food, delivered while coding!</h1>
+          <div className='nav-links'>
+
+            <Link to="/">Home</Link>
+            <Link to="/help">Help</Link>
+          </div>
+        </nav>
+
+        <Switch>
+          <Route path={'/pizza/:itemID'}>
+            <Form items={list} />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </div>
 
       <Form
         values={formValues}
@@ -123,9 +143,7 @@ export default function App() {
         errors={formErrors}
       />
 
-      {friends.map((friend) => {
-        return <Friend key={friend.id} details={friend} />;
-      })}
+
     </div>
   );
 }

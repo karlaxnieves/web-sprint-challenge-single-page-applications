@@ -1,4 +1,5 @@
 import React from "react";
+import Confirmation from "./Confirmation";
 
 export default function Form(props) {
     const { values, submit, change, disabled, errors } = props;
