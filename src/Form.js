@@ -3,16 +3,33 @@ import React from "react";
 export default function Form(props) {
     const { values, submit, change, disabled, errors } = props;
 
+    const onSubmit = (evt) => {
+        evt.preventDefault();
+        submit();
+    };
+
+    const onChange = (evt) => {
+        const { name, value, type, checked } = evt.target;
+        const valueToUse = type === "checkbox" ? checked : value;
+        change(name, valueToUse);
+    };
+
 
     return (
-        <form className="form container" onSubmit={onSubmit}>
+        <form className="form container">
             <div className="form">
-                <h2>Build Your Own Pizza</h2>
+                <div className="errors">
+
+                    <div>{errors.size}</div>
+                    <div>{errors.sauce}</div>
+
+                </div>
+
                 <div className="choice-of-size">
                     <h3>Choice of Size</h3>
                     <label>
                         Size
-          <select onChange={onChange} value={values.role} name="size">
+          <select onChange={onChange} value={values.size} name="size">
                             <option value="">- Select -</option>
                             <option value="small">Small</option>
                             <option value="medium">Medium</option>
@@ -118,7 +135,7 @@ export default function Form(props) {
                         Pineapple
           <input
                             type="checkbox"
-                            name="pinapple"
+                            name="pineapple"
                             checked={values.pinapple}
                             onChange={onChange}
                         ></input>
@@ -158,15 +175,17 @@ export default function Form(props) {
                     <h3>Special Instructions</h3>
                     <label>
                         <input
-                            value={values.email}
+                            value={values.add}
                             onChange={onChange}
-                            name="email"
+                            name="add"
                             type="text"
-                            placeholder="type a username"
+                            placeholder="Anything else you'd like to add?"
                         />
                     </label>
                 </div>
-
+                <div className="submit" onSubmit={onSubmit}>
+                    <button disabled={disabled}>Add to Order</button>
+                </div>
             </div>
         </form>
     )
