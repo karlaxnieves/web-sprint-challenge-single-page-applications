@@ -6,6 +6,7 @@ import schema from './formSchema';
 import Home from './Home'
 import Confirmation from './Confirmation'
 import { Route, withRouter, Switch } from 'react-router-dom'
+import css from './App.css'
 
 const initialFormValues = {
   size: "",
@@ -84,11 +85,49 @@ function App() {
     });
   };
 
+  const submitForm = () => {
+    const newList = {
+      size: formValues.size.trim(),
+      sauce: formValues.sauce.trim(),
+      add: formValues.add.trim(),
+      toppings: ["pepperoni", "sausage", "mushroom", "onion", "bacon", , "pineapple", "olives", "peppers", "gluten"].filter(
+        (topping) => formValues[topping]
+      ),
+    };
+    postNewList(newList)
+  }
+
+  useEffect(() => {
+    getList();
+  }, []);
+
+  useEffect(() => {
+    schema.isValid(formValues).then((valid) => {
+      setDisabled(!valid);
+    });
+  }, [formValues]);
 
   return (
-    <>
+    <Switch>
 
-    </>
+      <Route path='/pizza/confirmation' >
+        <Confirmation />
+      </Route>
+
+      <Route path='/pizza'>
+        <Form values={formValues}
+          submit={submitForm}
+          change={inputChange}
+          disabled={disabled}
+          errors={formErrors} />
+      </Route>
+
+      <Route path='/'>
+        < Home />
+      </Route>
+
+    </Switch>
+
   );
 };
 
