@@ -3,11 +3,12 @@ import * as yup from "yup";
 export default yup.object().shape({
     add: yup
         .string(),
-
     size: yup
         .string()
-        .oneOf(["small", "medium", "large"], "Required"),
-    sauce: yup.string().oneOf(["original red", "garlic ranch", "bbq sauce", "spinach alfredo",], "Required"),
+        .oneOf(["small", "medium", "large"], "Required")
+        .required("you must choose a size"),
+    sauce: yup.string().oneOf(["original red", "garlic ranch", "bbq sauce", "spinach alfredo",], "Required")
+        .required("you must choose a sauce type"),
     // we are done with checkboxes
     pepperoni: yup.boolean(),
     sausage: yup.boolean(),
