@@ -6,8 +6,17 @@ import styled from 'styled-components'
 const FormPage = styled.form`
 font-size: 1.5em;
 height 50%;
-width: 100%;
+width: 80%;
 `
+
+const Select = styled.select`
+width:20%;
+`
+
+const Input = styled.input`
+width: 25%;
+`
+
 
 export default function Form(props) {
     const { values, submit, change, disabled, errors, } = props;
@@ -43,19 +52,19 @@ export default function Form(props) {
                     <h3>Choice of Size</h3>
                     <label>
                         Size
-          <select onChange={onChange} value={values.size} name="size">
+          <Select onChange={onChange} value={values.size} name="size">
                             <option value="">- Select -</option>
                             <option value="small">Small</option>
                             <option value="medium">Medium</option>
                             <option value="large">Large</option>
-                        </select>
+                        </Select>
                     </label>
                 </div>
                 <div className="choice-of-sauce">
                     <h3>Choice of Sauce</h3>
                     <label>
                         Original Red
-          <input
+          <Input
                             type="radio"
                             name="sauce"
                             value="original red"
@@ -66,7 +75,7 @@ export default function Form(props) {
 
                     <label>
                         Garlic Ranch
-          <input
+          <Input
                             type="radio"
                             name="sauce"
                             value="garlic ranch"
@@ -76,7 +85,7 @@ export default function Form(props) {
                     </label>
                     <label>
                         BBQ Sauce
-          <input
+          <Input
                             type="radio"
                             name="sauce"
                             value="bbq sauce"
@@ -86,7 +95,7 @@ export default function Form(props) {
                     </label>
                     <label>
                         Spinach Alfredo
-          <input
+          <Input
                             type="radio"
                             name="sauce"
                             value="spinach alfredo"
@@ -101,7 +110,7 @@ export default function Form(props) {
                     <h3>Choice of Toppings</h3>
                     <label>
                         Pepperoni
-          <input
+          <Input
                             type="checkbox"
                             name="pepperoni"
                             checked={values.pepperoni}
@@ -111,84 +120,84 @@ export default function Form(props) {
 
                     <label>
                         Sausage
-          <input
+          <Input
                             type="checkbox"
                             name="sausage"
                             checked={values.sausage}
                             onChange={onChange}
-                        ></input>
+                        ></Input>
                     </label>
                     <label>
                         Mushroom
-          <input
+          <Input
                             type="checkbox"
                             name="mushroom"
                             checked={values.mushroom}
                             onChange={onChange}
-                        ></input>
+                        ></Input>
                     </label>
                     <label>
                         Onion
-          <input
+          <Input
                             type="checkbox"
                             name="onion"
                             checked={values.onion}
                             onChange={onChange}
-                        ></input>
+                        ></Input>
                     </label>
                     <label>
                         Bacon
-          <input
+          <Input
                             type="checkbox"
                             name="bacon"
                             checked={values.bacon}
                             onChange={onChange}
-                        ></input>
+                        ></Input>
                     </label>
                     <label>
                         Pineapple
-          <input
+          <Input
                             type="checkbox"
                             name="pineapple"
                             checked={values.pineapple}
                             onChange={onChange}
-                        ></input>
+                        ></Input>
                     </label>
                     <label>
                         Black Olives
-          <input
+          <Input
                             type="checkbox"
                             name="olives"
                             checked={values.olives}
                             onChange={onChange}
-                        ></input>
+                        ></Input>
                     </label>
                     <label>
                         Green Peppers
-          <input
+          <Input
                             type="checkbox"
                             name="peppers"
                             checked={values.peppers}
                             onChange={onChange}
-                        ></input>
+                        ></Input>
                     </label>
                 </div>
                 <div className="choice-of-substitude">
                     <h3>Choice of Substitute</h3>
                     <label>
                         Gluten Free Crust (+ $1.00)
-          <input
+          <Input
                             type="checkbox"
                             name="gluten"
                             checked={values.gluten}
                             onChange={onChange}
-                        ></input>
+                        ></Input>
                     </label>
                 </div>
                 <div className="add-on">
                     <h3>Special Instructions</h3>
                     <label>
-                        <input
+                        <Input
                             value={values.add}
                             onChange={onChange}
                             name="add"
